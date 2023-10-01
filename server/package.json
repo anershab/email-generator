@@ -1,0 +1,44 @@
+{
+  "type": "module",
+  "name": "email-generator",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Aner Shabtai <aner.shabtai@gong.io>",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "c8 tap \"test/**/*.test.js\"",
+    "prod": "fastify start -l info app.js",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "7.23.0",
+    "@babel/preset-env": "7.22.20",
+    "@babel/preset-react": "7.22.15",
+    "@fastify/autoload": "5.0.0",
+    "@fastify/sensible": "5.0.0",
+    "@fastify/static": "6.11.2",
+    "close-with-grace": "1.2.0",
+    "dotenv": "16.3.1",
+    "fastify": "4.0.0",
+    "fastify-cli": "5.8.0",
+    "fastify-plugin": "4.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "5.0.5",
+    "uuid": "9.0.1"
+  },
+  "devDependencies": {
+    "c8": "7.13.0",
+    "nodemon": "3.0.1",
+    "eslint": "8.50.0",
+    "tap": "16.1.0"
+  },
+  "tap": {
+    "coverage": false
+  }
+}

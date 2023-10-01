@@ -1,0 +1,36 @@
+{
+  "name": "email-generator",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Aner Shabtai <aner.shabtai@gong.io>",
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.16.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "cd server;npm run start",
+    "front": "react-scripts start",
+    "prod": "cd server;npm run prod",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
