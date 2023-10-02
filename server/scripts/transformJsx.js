@@ -39,8 +39,9 @@ async function transformJsx({
     `${componentName}.css`
   );
 
+  const hasCssFile = fs.existsSync(cssPath);
+
   const rawJsxCode = fs.readFileSync(jsxFilePath, "utf-8");
-  const cssCode = fs.readFileSync(cssPath, "utf-8");
   const noCssImportsRegex = /^import\s+(['"])(.*?)\1\s*;/gm;
   const jsxCode = rawJsxCode.replace(noCssImportsRegex, "");
 
@@ -68,7 +69,13 @@ async function transformJsx({
     const html = ReactDOMServer.renderToString(
       React.createElement(component.default, componentProps)
     );
-    const inlineStyleTag = `<style>${cssCode}</style>`;
+    let inlineStyleTag = "";
+    if (hasCssFile) {
+      const cssCode = fs.readFileSync(cssPath, "utf-8");
+      inlineStyleTag = `<style>${hasCssFile ? cssCode : ""}</style>`;
+    } else {
+      inlineStyleTag = `<style>${hasCssFile ? cssCode : ""}</style>`;
+    }
     const finalHTML = `<html><head>${inlineStyleTag}</head><body>${html}</body></html>`;
     return finalHTML;
   } catch (error) {
