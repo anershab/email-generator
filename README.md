@@ -10,11 +10,13 @@ It is a simple React application that loads components from the `emails` folder 
 
 To start it, run `npm run front`. Then, you may load your desired component through the URL bar.
 
-For example: To load the component `/emails/Welcome.jsx`, type in `localhost:3000/Welcome`. Casing is important!
+For example: To load the component `/emails/Welcome/Welcome.jsx`, type in `localhost:3000/Welcome`. Casing is important!
 
 Edit your component as you see fit; changes will be reflected in the browser.
 
 Your components may accept a prop object like any other React component. However, bear in mind that these are emails and clients will reject and prune JS code. If you want to use flashy components, seek CSS alternatives.
+
+**Important! Component files must be located under their own folder.**
 
 #### Styling
 
@@ -31,7 +33,7 @@ This endpoint will take a component, transform it to a plain HTML file, and send
 The `template` field refers to the component name, without the file extension, as found under `src/emails`.
 The `props` field is the props object as required by the component, and will be injected as is into it.
 
-For example, given a component `/emails/Welcome.jsx` that looks like this:
+For example, given a component `/emails/Welcome/Welcome.jsx` that looks like this:
 
 ```
 import React from 'react';
