@@ -1,8 +1,12 @@
-# Email Generator
+### 💡 Testing your Emails
+
+You can validate your HTML outputs [in this website](https://www.htmlemailcheck.com/check/).
+
+# 📨 Email Generator
 
 This service contains two projects, loosely coupled.
 
-## Frontend
+## 🔨 Frontend
 
 The "Frontend" project is strictly for ease of local development purposes. It does not run as a service anywhere but your own personal machine.
 
@@ -16,17 +20,17 @@ Edit your component as you see fit; changes will be reflected in the browser.
 
 Your components may accept a prop object like any other React component. However, bear in mind that these are emails and clients will reject and prune JS code. If you want to use flashy components, seek CSS alternatives.
 
-**Important! Component files must be located under their own folder.**
+**⚠️ Important! Component files must be located under their own folder.**
 
-#### Styling
+#### 🎨 Styling
 
-Many email clients do not support tags like `<div>`: you should heavily favor use of React-Email components included in the project. They serve as semantic wrappers for tags tested on most email clients which have fallen out favor in modern frontend applications (such as `<td`). You can [read more about their usage here](https://react.email/docs/components/).
+Many email clients do not support tags like `<div>`: you should heavily favor use of React-Email components included in the project. They serve as semantic wrappers for tags tested on most email clients which have fallen out favor in modern frontend applications (such as `<td>`). You can [read more about their usage here](https://react.email/docs/components/).
 
-_You do not need to include `<Html>` or `<Head>` in your component. The backend takes care of this._
+> 👉 _You do not need to include `<Html>` or `<Head>` in your component. The backend takes care of this._
 
 The project only support vanilla CSS. An additional requirement is that the CSS file is named exactly like the component file itself. For example, `Welcome.jsx` and `Welcome.css`. Importing any other CSS files into the component will result in the styling being lost in the transformation.
 
-## Server
+## 🤖 Server
 
 The server is a Fastify application with the following endpoints:
 

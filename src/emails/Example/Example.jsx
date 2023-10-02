@@ -16,7 +16,7 @@ export default function ExampleComponent(props) {
       <Row>
         <Column>
           <Font fontFamily="Roboto" fallbackFontFamily="Verdana" />
-          <Heading className="header">{`Hello, ${props.name}!`}</Heading>
+          <Heading className="header centered">{`Hello, ${props.name}!`}</Heading>
           <Hr />
           <Text>This is a JSX to email HTML conversion example.</Text>
           <Row>
@@ -33,7 +33,7 @@ export default function ExampleComponent(props) {
             className="btn"
             pX={20}
             pY={12}
-            href="https://example.com"
+            href="https://google.com"
             style={{ color: "#fff", borderRadius: 8 }}
           >
             Action item!
