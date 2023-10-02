@@ -1,4 +1,4 @@
-import { Worker, isMainThread, parentPort, workerData } from "worker_threads";
+import { Worker } from "worker_threads";
 import path from "path";
 import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from "uuid";

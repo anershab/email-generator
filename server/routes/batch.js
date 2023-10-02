@@ -1,4 +1,4 @@
-import { Worker, isMainThread, parentPort, workerData } from "worker_threads";
+import { Worker } from "worker_threads";
 import path from "path";
 import fs from "fs";
 import { rimrafSync, rimraf } from "rimraf";
