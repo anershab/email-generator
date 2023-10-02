@@ -25,7 +25,7 @@ class templatesArray {
 
 export default async function (fastify, opts) {
   fastify.post("/batch", async function (request, reply) {
-    if (!request.batch) {
+    if (!request.body.batch) {
       return reply.code(400).send({ error: "No batch specified." });
     }
     const transformScript = path.resolve(

@@ -8,11 +8,11 @@ const __dirname = path.dirname(__filename);
 
 export default async function (fastify, opts) {
   fastify.post("/transform", async function (request, reply) {
-    if (!request.template) {
+    if (!request.body.template) {
       return reply.code(400).send({ error: "No template specified." });
     }
-    const componentName = request.template;
-    const componentProps = request.props || {};
+    const componentName = request.body.template;
+    const componentProps = request.body.props || {};
     const workerId = uuidv4();
     try {
       const worker = new Worker(
