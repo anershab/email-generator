@@ -28,7 +28,9 @@ const DynamicComponentLoader = () => {
     .split("/")
     .filter((segment) => segment !== "");
   const componentName = segments[0] || "DefaultComponent";
-  const DynamicComponent = lazy(() => import(`./emails/${componentName}`));
+  const DynamicComponent = lazy(() =>
+    import(`./emails/${componentName}/${componentName}`)
+  );
   return (
     <div>
       <Suspense fallback={<Loading />}>
