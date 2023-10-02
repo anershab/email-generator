@@ -76,7 +76,7 @@ async function transformJsx({
     } else {
       inlineStyleTag = `<style>${hasCssFile ? cssCode : ""}</style>`;
     }
-    const finalHTML = `<html><head>${inlineStyleTag}</head><body>${html}</body></html>`;
+    const finalHTML = `<!DOCTYPE html><html><head>${inlineStyleTag}</head><body>${html}</body></html>`;
     return finalHTML;
   } catch (error) {
     throw new Error(`Failed in ReactDOMServer operations: ${error}`);
