@@ -60,8 +60,7 @@ async function transformJsx({
     }
     fs.writeFileSync(tempModulePath, transformedCode, "utf-8");
   } catch (error) {
-    console.error(`Worker ${workerId} failed in fs operations:`, error);
-    throw new Error(error);
+    throw new Error(`Failed in fs operations: ${error}`);
   }
 
   try {
@@ -73,11 +72,7 @@ async function transformJsx({
     const finalHTML = `<html><head>${inlineStyleTag}</head><body>${html}</body></html>`;
     return finalHTML;
   } catch (error) {
-    console.error(
-      `Worker ${workerId} failed in ReactDOMServer operations:`,
-      error
-    );
-    throw new Error(error);
+    throw new Error(`Failed in ReactDOMServer operations: ${error}`);
   } finally {
     if (!isBatchJob) {
       rimraf(tempDir);
