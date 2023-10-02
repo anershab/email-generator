@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default async function (fastify, opts) {
-  fastify.get("/transform", async function (request, reply) {
+  fastify.post("/transform", async function (request, reply) {
     if (!request.template) {
       return reply.code(400).send({ error: "No template specified." });
     }
