@@ -38,7 +38,7 @@ For example, given a component `/emails/Welcome/Welcome.jsx` that looks like thi
 ```
 import React from 'react';
 export default function WelcomeComponent(props) {
-  return <h1>{`Hello, ${props.userName}!`}</h1>
+  return <h1>{`Hello, ${props.name}!`}</h1>
 }
 ```
 
@@ -48,12 +48,12 @@ passing a body of:
 {
   template: 'Welcome',
   props: {
-    userName: 'Aner'
+    name: 'Aner'
   }
 }
 ```
 
-Will transform `emails/Welcome/Welcome.jsx` to a HTML file with `Aner` properly injected into the `props.userName` field.
+Will transform `emails/Welcome/Welcome.jsx` to a HTML file with `Aner` properly injected into the `props.name` field.
 
 ### `POST /batch [ { props, template }, { props, template } ... ] `
 
@@ -66,14 +66,14 @@ Expected body payload example:
   {
     template: 'Welcome',
     props: {
-      userName: 'Aner'
+      name: 'Aner'
     }
   },
   {
     template: 'Introduction',
     props: {
       company: 'Gong',
-      userName: 'Aner'
+      name: 'Aner'
     }
   }
 ]
