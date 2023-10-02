@@ -53,7 +53,7 @@ passing a body of:
 }
 ```
 
-Will transform `emails/Welcome.jsx` to a HTML file with `Aner` properly injected into the `props.userName` field.
+Will transform `emails/Welcome/Welcome.jsx` to a HTML file with `Aner` properly injected into the `props.userName` field.
 
 ### `POST /batch [ { props, template }, { props, template } ... ] `
 
