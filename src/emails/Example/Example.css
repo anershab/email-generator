@@ -1,4 +1,10 @@
 .header {
     color: slateblue;
-    font-family: Arial, Helvetica, sans-serif;
+}
+.centered {
+    text-align: center;
+    vertical-align: middle; 
+}
+.btn{
+    background-color: indigo;
 }
