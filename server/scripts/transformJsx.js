@@ -7,6 +7,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { parentPort, workerData } from "worker_threads";
 import { v4 as uuidv4 } from "uuid";
+import outlookExternalClass from "../consts/outlookExternalClass.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -76,7 +77,7 @@ async function transformJsx({
     } else {
       inlineStyleTag = `<style>${hasCssFile ? cssCode : ""}</style>`;
     }
-    const finalHTML = `<!DOCTYPE html><html><head>${inlineStyleTag}</head><body>${html}</body></html>`;
+    const finalHTML = `<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>${outlookExternalClass}${inlineStyleTag}</head><body>${html}</body></html>`;
     return finalHTML;
   } catch (error) {
     throw new Error(`Failed in ReactDOMServer operations: ${error}`);
