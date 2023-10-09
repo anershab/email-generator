@@ -1,0 +1,46 @@
+.emailgen__side-menu{
+    background-color: #8039df;
+    width: 200px;
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #1d0254;
+    padding: 20px;
+}
+.emailgen__item {
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    position: relative;
+    justify-content: space-between;
+    height: 24px;
+    max-height: 24px;
+}
+.emailgen__item a:hover,.emailgen__item button:hover {
+    opacity: 0.6;
+}
+.emailgen__item button {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    font-family: sans-serif !important;
+    border: none;
+    border-radius:24px;
+    background-color: blueviolet;
+    color: white;
+    margin-right: 4px;
+    padding-left: 6px;
+    padding-bottom: 3px;
+    z-index:4;
+    cursor: pointer;
+}
+.emailgen__item a{
+    font-family: sans-serif !important;
+    align-self: center;
+}
