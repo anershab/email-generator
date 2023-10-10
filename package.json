@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "cd server;npm run start",
-    "front": "react-scripts start",
+    "front": "PORT=3030 react-scripts start",
     "prod": "cd server;npm run prod",
     "eject": "react-scripts eject"
   },
