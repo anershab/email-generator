@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@react-email/button";
 import { Column } from "@react-email/Column";
 import { Link } from "@react-email/Link";
 import { Heading } from "@react-email/Heading";
@@ -8,9 +7,6 @@ import { Font } from "@react-email/Font";
 import { Container } from "@react-email/container";
 import { Row } from "@react-email/Row";
 import { Img } from "@react-email/Img";
-import LogoGong from "../../assets/LogoGong.png";
-import NumberOne from "../../assets/NumberOne.png";
-import LightBulbOn from "../../assets/LightBulbOn.png";
 import { Hr } from "@react-email/Hr";
 import { Section } from "@react-email/section";
 import "./FirstCallAsOwner.css";
@@ -92,7 +88,7 @@ export default function FirstCallAsOwner({
       <Font fontFamily="Arial" fallbackFontFamily="sans-serif" />
       <Row className="email-header">
         <Img
-          src={LogoGong}
+          src={"/assets/LogoGong.png"}
           alt="Gong Logo"
           width="80"
           style={{
@@ -111,7 +107,7 @@ export default function FirstCallAsOwner({
         }}
       >
         <Row>
-          <Img src={NumberOne} style={{ margin: "0 auto" }} />
+          <Img src={"/assets/NumberOne.png"} style={{ margin: "0 auto" }} />
           <Heading as="h2" style={{ textAlign: "center" }}>
             You’re about to host your first recorded call using Gong!
           </Heading>
@@ -131,7 +127,7 @@ export default function FirstCallAsOwner({
           }}
         >
           <Row className="image-header">
-            <Img src={LightBulbOn} />
+            <Img src={"/assets/LightBulbOn.png"} />
             <Text>Here's what you should know:</Text>
           </Row>
           <InstructionStepOne
