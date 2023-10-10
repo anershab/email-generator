@@ -1,11 +1,12 @@
 .emailgen__side-menu{
     background-color: #8039df;
     width: 200px;
-    height: calc(100vh - 40px);
     display: flex;
     flex-direction: column;
     border-right: 2px solid #1d0254;
     padding: 20px;
+    position: fixed;
+    height: 100%;
 }
 .emailgen__item {
     background-color: white;
