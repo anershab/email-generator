@@ -179,7 +179,7 @@ const DynamicComponentLoader = ({ savedProps }) => {
     import(`./emails/${componentName}/${componentName}`)
   );
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%", backgroundColor: "#F1F1F1" }}>
       <Suspense fallback={<Home />}>
         <DynamicComponent {...savedProps[componentName]} />
       </Suspense>
