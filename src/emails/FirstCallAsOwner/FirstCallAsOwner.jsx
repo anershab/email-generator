@@ -20,12 +20,73 @@ const rowStyle = {
   background: "white",
   padding: "0 10%",
 };
+
+const getBooleanStringValue = (str) => (String(str) === "false" ? false : true);
+
+const InstructionStepOne = ({ botName, isCloudRecording }) => {
+  return (
+    <Step
+      ctaText="When joining the call:"
+      index="1"
+      body={
+        isCloudRecording ? (
+          <Text>
+            You'll notice that the meeting begins by recording automatically. If
+            you know you don’t want the call to be recorded ahead of time, you
+            can set the calendar event to private and the recording will be
+            skipped.
+          </Text>
+        ) : (
+          <Text>
+            You’ll notice that a{" "}
+            <Link href="https://help.gong.io/hc/en-us/articles/360055500812-Record-a-web-conference-call">
+              Gong bot
+            </Link>{" "}
+            named {botName} has joined the meeting as a participant. If your
+            meeting has a waiting room, be sure to admit the bot onto the call
+            if you want it to be recorded.
+          </Text>
+        )
+      }
+    />
+  );
+};
+const InstructionStepTwo = ({ botName, isCloudRecording }) => {
+  return (
+    <Step
+      ctaText="During your conversation:"
+      index="2"
+      body={
+        isCloudRecording ? (
+          <Text>
+            Don't be shy to ask for consent. According to our data, customers
+            consent to record over 96% of sales calls. If needed, you may stop
+            or pause the recording at any time.
+          </Text>
+        ) : (
+          <Text>
+            Don't be shy to ask for consent. Customers consent to record over
+            96% of sales calls. If needed, you may stop the recording by{" "}
+            <Link href="https://help.gong.io/hc/en-us/articles/360042204551-Stop-a-recording">
+              removing the "{botName}"
+            </Link>{" "}
+            from the conference call or canceling the recording from the Gong
+            app home page.
+          </Text>
+        )
+      }
+    />
+  );
+};
+
 export default function FirstCallAsOwner({
   firstName = "Joe",
   callTitle = "Gong call",
   botName = "Gong Recorder",
   companyName = "Gong",
+  isCloudRecorded = false,
 }) {
+  const isCloudRecording = getBooleanStringValue(isCloudRecorded);
   return (
     <Container style={{ marginTop: "32px", marginBottom: "32px" }}>
       <Font fontFamily="Arial" fallbackFontFamily="sans-serif" />
@@ -73,36 +134,13 @@ export default function FirstCallAsOwner({
             <Img src={LightBulbOn} />
             <Text>Here's what you should know:</Text>
           </Row>
-          <Step
-            ctaText="When joining the call:"
-            index="1"
-            body={
-              <Text>
-                You’ll notice that a{" "}
-                <Link href="https://help.gong.io/hc/en-us/articles/360055500812-Record-a-web-conference-call">
-                  Gong bot
-                </Link>{" "}
-                named {botName} has joined the meeting as a participant. If your
-                meeting has a waiting room, be sure to admit the bot onto the
-                call if you want it to be recorded.
-              </Text>
-            }
+          <InstructionStepOne
+            botName={botName}
+            isCloudRecording={isCloudRecording}
           />
-          <Step
-            ctaText="During your conversation:"
-            index="2"
-            body={
-              <Text>
-                Don't be shy to ask for consent. Customers consent to record
-                over 96% of sales calls. If needed, you may stop the recording
-                by{" "}
-                <Link href="https://help.gong.io/hc/en-us/articles/360042204551-Stop-a-recording">
-                  removing the "{botName}"
-                </Link>{" "}
-                from the conference call or canceling the recording from the
-                Gong app home page.
-              </Text>
-            }
+          <InstructionStepTwo
+            botName={botName}
+            isCloudRecording={isCloudRecording}
           />
           <Step
             ctaText="Soon after it's over"

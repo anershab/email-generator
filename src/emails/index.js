@@ -12,6 +12,12 @@ export const Example = {
 };
 
 export const FirstCallAsOwner = {
-  props: { callTitle: "", firstName: "", botName: "", companyName: "" },
+  props: {
+    callTitle: "",
+    firstName: "",
+    botName: "",
+    companyName: "",
+    isCloudRecorded: false,
+  },
   component: import("./FirstCallAsOwner/FirstCallAsOwner"),
 };
