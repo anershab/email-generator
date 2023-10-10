@@ -1,7 +1,7 @@
 /*
 In order to include your email template in the sidebar, add the following to the end of this file:
     export const YourComponentName = {
-        metaData { ...defaultProps },
+        metaData: { ... your props ... },
         component: import("/ComponentDir/ComponentFile")
     };
 */
@@ -9,4 +9,9 @@ In order to include your email template in the sidebar, add the following to the
 export const Example = {
   props: { name: "Default" },
   component: import("./Example/Example"),
+};
+
+export const FirstCallAsOwner = {
+  props: { callTitle: "", firstName: "", botName: "", companyName: "" },
+  component: import("./FirstCallAsOwner/FirstCallAsOwner"),
 };
