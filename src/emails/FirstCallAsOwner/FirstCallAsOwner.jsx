@@ -76,11 +76,11 @@ const InstructionStepTwo = ({ botName, isCloudRecording }) => {
 };
 
 export default function FirstCallAsOwner({
-  firstName = "Joe",
-  callTitle = "Gong call",
-  botName = "Gong Recorder",
-  companyName = "Gong",
-  isCloudRecorded = false,
+  firstName,
+  callTitle,
+  botName,
+  companyName,
+  isCloudRecorded,
 }) {
   const isCloudRecording = getBooleanStringValue(isCloudRecorded);
   return (

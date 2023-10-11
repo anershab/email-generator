@@ -1,4 +1,11 @@
-import React, { Suspense, lazy, useRef, useEffect, useState } from "react";
+import React, {
+  Suspense,
+  lazy,
+  useRef,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
@@ -128,6 +135,18 @@ const App = () => {
     setModalVisible(true);
   };
 
+  const currentTemplate = window.location.pathname.replace("/", "");
+
+  const getCurrentTemplateDefaultProps = useCallback(() => {
+    const target = templates.find(
+      (template) => template.name === currentTemplate
+    );
+    if (target) {
+      return target.defaultProps;
+    }
+    return {};
+  }, [currentTemplate, templates]);
+
   useEffect(() => {
     const components = Object.entries(EmailTemplates);
     const componentMap = components.map((entry) => {
@@ -141,6 +160,10 @@ const App = () => {
     setTemplates(componentMap);
   }, []);
 
+  console.log({
+    ...getCurrentTemplateDefaultProps(),
+    ...savedProps,
+  });
   return (
     <div style={wrapperStyle}>
       <SideMenu templates={templates} openModal={openModal} />
@@ -150,7 +173,14 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route
               path="*"
-              element={<DynamicComponentLoader savedProps={savedProps} />}
+              element={
+                <DynamicComponentLoader
+                  savedProps={{
+                    ...getCurrentTemplateDefaultProps(),
+                    ...savedProps,
+                  }}
+                />
+              }
             />
           </Routes>
         </Suspense>
@@ -181,7 +211,7 @@ const DynamicComponentLoader = ({ savedProps }) => {
   return (
     <div style={{ width: "100%", backgroundColor: "#F1F1F1" }}>
       <Suspense fallback={<Home />}>
-        <DynamicComponent {...savedProps[componentName]} />
+        <DynamicComponent {...savedProps} />
       </Suspense>
     </div>
   );

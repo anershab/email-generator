@@ -13,10 +13,10 @@ export const Example = {
 
 export const FirstCallAsOwner = {
   props: {
-    callTitle: "",
-    firstName: "",
-    botName: "",
-    companyName: "",
+    callTitle: "Very Important Call",
+    firstName: "John",
+    botName: "T-1000",
+    companyName: "Grong",
     isCloudRecorded: false,
   },
   component: import("./FirstCallAsOwner/FirstCallAsOwner"),
