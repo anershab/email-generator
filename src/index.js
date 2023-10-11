@@ -177,7 +177,7 @@ const App = () => {
                 <DynamicComponentLoader
                   savedProps={{
                     ...getCurrentTemplateDefaultProps(),
-                    ...savedProps,
+                    ...savedProps[currentTemplate],
                   }}
                 />
               }
@@ -208,6 +208,7 @@ const DynamicComponentLoader = ({ savedProps }) => {
   const DynamicComponent = lazy(() =>
     import(`./emails/${componentName}/${componentName}`)
   );
+  console.log("aner", { savedProps });
   return (
     <div style={{ width: "100%", backgroundColor: "#F1F1F1", marginLeft: 240 }}>
       <Suspense fallback={<Home />}>
