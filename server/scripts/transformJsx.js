@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 import { parentPort, workerData } from "worker_threads";
 import { v4 as uuidv4 } from "uuid";
 import outlookExternalClass from "../consts/outlookExternalClass.js";
+import { verifyAssetsInBucket } from "./verifyAssetsInBucket.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,6 +16,10 @@ const __dirname = path.dirname(__filename);
 const emailsFolder = path.resolve(__dirname, "../../src/emails");
 const tempDir = path.join(__dirname, "..", "temp");
 const babelPresets = ["@babel/preset-env", "@babel/preset-react"];
+
+const srcTag = `src="`;
+const imgSrcPath = srcTag + `/assets/`;
+const imgBucketUrl = srcTag + "https://aner-emailgen-test.s3.amazonaws.com/";
 
 async function transformJsx({
   componentName,
@@ -77,7 +82,13 @@ async function transformJsx({
     } else {
       inlineStyleTag = `<style>${hasCssFile ? cssCode : ""}</style>`;
     }
-    const finalHTML = `<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>${outlookExternalClass}${inlineStyleTag}</head><body>${html}</body></html>`;
+
+    let finalHTML = `<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>${outlookExternalClass}${inlineStyleTag}</head><body>${html}</body></html>`;
+
+    finalHTML = finalHTML.replaceAll(imgSrcPath, imgBucketUrl);
+
+    // await verifyAssetsInBucket(finalHTML);
+
     return finalHTML;
   } catch (error) {
     throw new Error(`Failed in ReactDOMServer operations: ${error}`);

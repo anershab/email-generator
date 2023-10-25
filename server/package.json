@@ -16,6 +16,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "3.433.0",
     "@babel/core": "7.23.0",
     "@babel/preset-env": "7.22.20",
     "@babel/preset-react": "7.22.15",
@@ -34,8 +35,8 @@
   },
   "devDependencies": {
     "c8": "7.13.0",
-    "nodemon": "3.0.1",
     "eslint": "8.50.0",
+    "nodemon": "3.0.1",
     "tap": "16.1.0"
   },
   "tap": {
